@@ -136,13 +136,9 @@ continu = True
 while continu:
     matrix = createMatrix(size, eps)
     if size == 3:
-        det3 = determinant3(matrix)
+        det = determinant3(matrix)
     else:
-        det3 = determinant4(matrix, eps)
-    if det3[0] * det3[1] <= 0:
-        print('Det: (', np.around(det3[0], decimals=5), ', ', np.around(det3[1], decimals=5), ')')
-        print('Found eps:', np.around(eps, decimals=3))
-        continu = False
+        det = determinant4(matrix, eps)
     beckRes, rho = beckCriterion(matrix)
     diagRes, diagMax = diagMaxCriterion(matrix)
     if beckRes == 'undefined' and diagRes == 'true, it is special matrix':
@@ -159,11 +155,11 @@ continu = True
 while continu:
     matrix = createMatrix(size, eps)
     if size == 3:
-        det3 = determinant3(matrix)
+        det = determinant3(matrix)
     else:
-        det3 = determinant4(matrix, eps)
-    if det3[0] * det3[1] <= 0:
-        print('Det: (', np.around(det3[0], decimals=5), ', ', np.around(det3[1], decimals=5), ')')
+        det = determinant4(matrix, eps)
+    if det[0] * det[1] <= 0:
+        print('Det: (', np.around(det[0], decimals=5), ', ', np.around(det[1], decimals=5), ')')
         print('Found eps:', np.around(eps, decimals=3))
         continu = False
     eps += 0.001
